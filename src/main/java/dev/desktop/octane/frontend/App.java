@@ -1,8 +1,8 @@
-package dev.desktop.octane;
+package dev.desktop.octane.frontend;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.File;
-import dev.desktop.core.Octane;
+import dev.desktop.octane.core.Octane;
 public class App {
     /* Octane Frontend*/
     public static void main(String[] args) throws FileNotFoundException {
@@ -11,13 +11,13 @@ public class App {
         String filename = n.nextLine();
         n.close();
         Scanner read = new Scanner(new File(filename));
-        String program = "";
+        StringBuilder program = new StringBuilder();
         while(read.hasNextLine())
         {
-            program += read.nextLine();
+            program.append(read.nextLine());
         }
         read.close();
-        Octane oct = new Octane(program);
+        Octane oct = new Octane(program.toString());
         oct.lex();
     }
 }
