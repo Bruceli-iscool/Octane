@@ -1,7 +1,7 @@
 # example syntax for octane
 # program entry point
 program example {
-    var a = 5;
+    var:int a = 5;
     fn main() {
         return 5;
     }

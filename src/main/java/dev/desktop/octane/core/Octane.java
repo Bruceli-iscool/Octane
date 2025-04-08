@@ -7,9 +7,11 @@ Core components for Octane
 */ 
 public class Octane {
     final String p;
+    private final String f; 
     protected ArrayList<String> tokens;
-    public Octane(String program) {
+    public Octane(String program, String filename) {
         p = program;
+        f = filename;
     }
     public void lex() {
         ArrayList<String> result = new ArrayList<String>();
@@ -55,6 +57,7 @@ public class Octane {
         tokens = result;
     }
     public void compile() {
-        Compiler c = new Compiler(tokens);
+        Compiler c = new Compiler(tokens, f);
+        c.generate();
     }
 }
