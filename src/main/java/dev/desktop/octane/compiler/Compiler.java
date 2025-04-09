@@ -56,7 +56,7 @@ public class Compiler {
                                     } else if (current.matches("float")) {
                                         currentC += "float";
                                     }
-                                    // todo
+                                    current = t.get(0);
                                 } else {
                                     // infer type
                                 }
