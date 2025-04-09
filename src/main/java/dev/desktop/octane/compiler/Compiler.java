@@ -53,6 +53,8 @@ public class Compiler {
                                         currentC += "short ";
                                     } else if (current.matches("double")) {
                                         currentC += "double ";
+                                    } else if (current.matches("float")) {
+                                        currentC += "float";
                                     }
                                     // todo
                                 } else {
