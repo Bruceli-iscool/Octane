@@ -62,6 +62,7 @@ public class Compiler {
                                 }
                             }
                         }
+                        // write to file
                     } else {
                         System.out.println("Octane Compiler Error!: Expected " + f + " but revieved " + current + ".");
                     }
