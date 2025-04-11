@@ -59,6 +59,7 @@ public class Compiler {
                                     current = t.get(0);
                                 } else {
                                     // infer type
+
                                 }
                             }
                         }
