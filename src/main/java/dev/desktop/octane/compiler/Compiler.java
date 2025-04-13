@@ -26,8 +26,8 @@ public class Compiler {
                         // program generation.
                         genC += "int main(void){";
                         used = true;
+                        String currentC  = "";
                         while (stack > 0) {
-                            String currentC  = "";
                             current = t.get(0);
                             t.remove(0);
                             if (current.matches("var")) {
@@ -37,25 +37,11 @@ public class Compiler {
                                     // handle static typing.
                                     current = t.get(0);
                                     t.remove(0);
-                                    if (current.matches("uns")) {
-                                        // handle unsigned integers
-                                        currentC += "unsigned ";
-                                        current = t.get(0);
-                                        t.remove (0);
-                                    }
                                     if (current.matches("int")) {
                                         currentC += "int ";
                                     } else if (current.matches("boolean")) {
                                         currentC += "bool ";
-                                    } else if (current.matches("long")) {
-                                        currentC += "long ";
-                                    } else if (current.matches("short")) {
-                                        currentC += "short ";
-                                    } else if (current.matches("double")) {
-                                        currentC += "double ";
-                                    } else if (current.matches("float")) {
-                                        currentC += "float";
-                                    }
+                                    } 
                                     current = t.get(0);
                                 } else {
                                     // infer type
@@ -63,6 +49,7 @@ public class Compiler {
                                 }
                             }
                         }
+                        genC = genC + currentC + "}";
                         // write to file
                     } else {
                         System.out.println("Octane Compiler Error!: Expected " + f + " but revieved " + current + ".");
