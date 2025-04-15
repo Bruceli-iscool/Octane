@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Compiler {
     final ArrayList<String> t;
+    private boolean stringImported = false;
     private String f;
     private String genC = ""; 
     private boolean used = false;
@@ -41,7 +42,9 @@ public class Compiler {
                                         currentC += "int ";
                                     } else if (current.matches("boolean")) {
                                         currentC += "bool ";
-                                    } 
+                                    } else if (current.matches("String")&&stringImported) {
+                                        // todo
+                                    }
                                     current = t.get(0);
                                 } else {
                                     // infer type
@@ -58,7 +61,18 @@ public class Compiler {
                     System.out.println("Octane Compiler Error!: Expected an identifier but recieved " + current + ".");
                 }
             } else if (current.matches("import")) {
-                // todo
+                current = t.get(0);
+                t.remove(0);
+                if (current.matches("String")) {
+                    stringImported = true;
+                    current = t.get(0);
+                    t.remove(0);
+                    if (current.matches(";")) {
+                        
+                    } else {
+                        System.err.println("Octane Compiler Error!: Expected ';' but recieved "+current+".");
+                    }
+                }
             }
         }
     }
