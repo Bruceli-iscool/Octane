@@ -1,4 +1,4 @@
-package dev.desktop.octane.compiler;
+package dev.desktop.Octane;
 
 import java.util.ArrayList;
 
@@ -64,16 +64,19 @@ public class Compiler {
                 current = t.get(0);
                 t.remove(0);
                 if (current.matches("String")) {
-                    stringImported = true;
                     current = t.get(0);
                     t.remove(0);
                     if (current.matches(";")) {
-                        
+                        stringImported = true;
                     } else {
                         System.err.println("Octane Compiler Error!: Expected ';' but recieved "+current+".");
                     }
                 }
             }
         }
+    }
+    public String returnGenCode(){
+        // return genC with the standard library imported.
+        return "<stdio.h>" + genC;
     }
 }

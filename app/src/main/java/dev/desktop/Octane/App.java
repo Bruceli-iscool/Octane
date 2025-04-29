@@ -1,8 +1,7 @@
-package dev.desktop.octane.frontend;
+package dev.desktop.Octane;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.File;
-import dev.desktop.octane.core.Octane;
 public class App {
     /* Octane Frontend*/
     public static void main(String[] args) throws FileNotFoundException {

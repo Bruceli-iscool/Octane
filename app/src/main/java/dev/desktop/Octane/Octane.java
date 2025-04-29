@@ -1,7 +1,7 @@
-package dev.desktop.octane.core;
+package dev.desktop.Octane;
 
 import java.util.ArrayList;
-import dev.desktop.octane.compiler.Compiler;
+
 /*
 Core components for Octane
 */ 
