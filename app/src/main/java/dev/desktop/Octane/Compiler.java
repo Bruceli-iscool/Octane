@@ -68,15 +68,18 @@ public class Compiler {
                     t.remove(0);
                     if (current.matches(";")) {
                         stringImported = true;
+                        genC = "#include <string.h>\n" + genC;
                     } else {
                         System.err.println("Octane Compiler Error!: Expected ';' but recieved "+current+".");
                     }
                 }
-            }
+            }                 
+
+            
         }
     }
     public String returnGenCode(){
         // return genC with the standard library imported.
-        return "<stdio.h>" + genC;
+        return "#include <stdio.h>\n" + genC;
     }
 }
