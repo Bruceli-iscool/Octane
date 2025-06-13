@@ -1,3 +1,4 @@
+import String;
 # example syntax for octane
 # program entry point
 program example {

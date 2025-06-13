@@ -16,7 +16,8 @@ public class App {
             program.append(read.nextLine());
         }
         read.close();
-        Octane oct = new Octane(program.toString());
+        Octane oct = new Octane(program.toString(), filename);
         oct.lex();
+        oct.compile();
     }
 }
