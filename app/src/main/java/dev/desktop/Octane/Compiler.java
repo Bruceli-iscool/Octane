@@ -8,8 +8,6 @@ public class Compiler {
     private boolean stringImported = false;
     private String f;
     private String genJava = ""; 
-    private boolean used = false;
-    private String programName;
     public Compiler(ArrayList<String> tokens, String filename) {
         t = tokens;
         used = false;
@@ -52,26 +50,17 @@ public class Compiler {
                     } else {
                         error(current + " is not a valid statement!");
                     }
-                } else if (current.matches("class")) {
-                    current = t.get(0);
-                    t.remove(0);
-                    if (current.matches("^[a-zA-Z_][a-zA-Z0-9_]*$")) {
-                        String className = current;
-                        current = t.get(0);
-                        t.remove(0);
-                        if (current.matches("{")) {
-                            genJava += "class " + className +"{";
-                        }
-                    }
                 }
             } else {
-                if (current.matches("if")) {
-
-                } else if (current.matches("const")){
+                if (current.matches("const")){
                     current = t.get(0);
                     t.remove(0);
                     if (current.matches(":")) {
-                        
+                        current = t.get(0);
+                        t.remove(0);
+                        String type = returnType(current);
+                    } else {
+                        error("Expected : but recieved " + current + "!");
                     }
                 }
             }
@@ -83,5 +72,9 @@ public class Compiler {
     private void error(String message) {
         System.err.println("oce: " + message);
         System.exit(0);
+    }
+    private String returnType(String in) {
+        // todo
+        return in;
     }
 }
