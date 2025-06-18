@@ -36,11 +36,14 @@ public class Compiler {
                 } else if (current.matches("program")) {
                     current = t.get(0);
                     t.remove(0);
-                    genJava += "public class out { public static void main(String args[]) {";
+                    genJava += "public class " +f.replace(".oct", "")+ " { public static void main(String args[]) {";
                     if (current.matches("^[a-zA-Z_][a-zA-Z0-9_]*$")) {
+                        if (!current.matches(f.replace(".oct", ""))) {
+                            error("Expected " + f.replace(".oct", "")+ " but recieved " + current+ "!");
+                        } 
                         current = t.get(0);
                         t.remove(0);
-                        if (current.matches("{")) {
+                        if (current.matches("\\{")) {
                             program = true;
                             stack += 1;
                         } else {
@@ -61,9 +64,21 @@ public class Compiler {
                         }
                     }
                 }
+            } else {
+                if (current.matches("if")) {
+
+                } else if (current.matches("const")){
+                    current = t.get(0);
+                    t.remove(0);
+                    if (current.matches(":")) {
+                        
+                    }
+                }
             }
         }
-        genJava += "}}";
+        genJava += "}";
+        //test
+        System.out.println(genJava);
     }
     private void error(String message) {
         System.err.println("oce: " + message);

@@ -5,6 +5,9 @@ import java.io.File;
 public class App {
     /* Octane Frontend*/
     public static void main(String[] args) throws FileNotFoundException {
+        Octane octTest = new Octane("import String;program f {print(\"Hello , World\")}", "f.oct");
+        octTest.lex();
+        octTest.compile();
         System.out.println("Octane v0.0.1 running on: " + System.getProperty("os.name") + " " + System.getProperty("os.version") + "\nJava Ver: " + System.getProperty("java.version"));
         Scanner n = new Scanner(System.in);
         String filename = n.nextLine();

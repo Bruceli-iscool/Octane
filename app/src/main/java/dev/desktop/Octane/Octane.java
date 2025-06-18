@@ -20,7 +20,7 @@ public class Octane {
         for (int i = 0; i < p.length(); i++) {
             char c = p.charAt(i);
             switch (c) {
-                case '(': case ')': case ';': case '=': case '+': case '-': case '*': case '/':
+                case '(': case ')': case ';': case '=': case '+': case '-': case '*': case '/':case '{': case '}':case ':':
                     if (!z.isEmpty()) {
                         result.add(z);
                         z = "";
