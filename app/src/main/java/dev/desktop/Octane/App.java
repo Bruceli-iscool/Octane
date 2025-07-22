@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.io.File;
 public class App {
     /* Octane Frontend*/
+    // add error handling
     public static void main(String[] args) throws FileNotFoundException {
         Octane octTest = new Octane("import String;program f {print(\"Hello , World\")}", "f.oct");
         octTest.lex();
