@@ -71,6 +71,8 @@ public class Compiler {
                                     current = remove();
                                 }
                                 String genCode = processStatement(statementTokens);
+                                genJava += "final " + type + " " + varName + " = " + genCode + ";";
+                                constVars.add(varName);
                             } else if (current.matches(";")) {
                                 genJava += "final " + type + " " + varName + ";";
                                 constVars.add(varName);
@@ -90,7 +92,17 @@ public class Compiler {
         System.exit(0);
     }
     private String processStatement(List<String> in) {
-        // tdod
+        String value = "";
+        while (!in.isEmpty()) {
+            String current = in.get(0);
+            in.remove(0);
+            if (current.matches("^-?\\d+$")) {
+                value = current;
+                current = in.get(0);
+                in.remove(0);
+                
+            } 
+        }
         return "";
     }
     private String returnType(String in) {
