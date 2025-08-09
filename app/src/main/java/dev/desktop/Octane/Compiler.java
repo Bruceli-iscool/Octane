@@ -103,7 +103,7 @@ public class Compiler {
                 
             } 
         }
-        return "";
+        return value;
     }
     private String returnType(String in) {
         if (in.matches("String")&&stringImported) {
