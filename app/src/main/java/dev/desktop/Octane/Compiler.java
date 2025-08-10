@@ -101,7 +101,9 @@ public class Compiler {
                 current = in.get(0);
                 in.remove(0);
                 
-            } 
+            } else if (current.matches("")) {
+                // todo
+            }
         }
         return value;
     }
