@@ -103,6 +103,8 @@ public class Compiler {
                 
             } else if (current.matches("")) {
                 // todo
+            } else {
+                // todo
             }
         }
         return value;
